@@ -3,11 +3,16 @@
 
 #include <SDL.h>
 
+#include "RenderingSystem.h"
+
 class Engine
 {
 private:
     SDL_Window* window;
     bool quit;
+
+    //Systems
+    RenderingSystem* renderingSystem;
 
     Engine(void);                       //Private Constructor
     ~Engine(void);                      //Private Destructor
