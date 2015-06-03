@@ -2,6 +2,12 @@
 #include "Engine.h"
 #include <iostream>
 
+#include "Position.h"
+#include "Sprite.h"
+
+#include "System.h"
+
+
 Engine& Engine::instance(void)
 {
     static Engine instance; // Guaranteed to be destroyed.
@@ -39,7 +45,7 @@ Engine::Engine(void)
     }
 
      //Initialize Systems
-    renderingSystem = new RenderingSystem( window );
+     renderingSystem = new RenderingSystem( window );
 }
 
 Engine::~Engine(void)
@@ -72,8 +78,8 @@ void Engine::update()
         {
             quit = true;
         }
-
-        //Update Systems
-        renderingSystem->update();
     }
+
+    //Update Systems
+    renderingSystem->update();
 }

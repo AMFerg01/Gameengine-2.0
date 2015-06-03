@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 
+#include "Entity.h"
 #include "RenderingSystem.h"
 
 class Engine

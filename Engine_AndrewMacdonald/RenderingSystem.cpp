@@ -1,6 +1,10 @@
 //RenderingSystem.cpp
 #include "RenderingSystem.h"
 
+#include "Entity.h"
+#include "Position.h"
+#include "Sprite.h"
+
 RenderingSystem::RenderingSystem( SDL_Window* window )
 {
     //Create SDL2 Renderer
@@ -12,6 +16,9 @@ RenderingSystem::RenderingSystem( SDL_Window* window )
         system("pause");
         exit(EXIT_FAILURE);
     }
+
+    //Set Component Mask
+    componentMask = Position::getMask() | Sprite::getMask();
 }
 
 RenderingSystem::~RenderingSystem(void)
@@ -26,6 +33,17 @@ void RenderingSystem::update()
 
     //Clear screen
     SDL_RenderClear( renderer );
+
+    //Loop through all entities
+    for( Entity& entity : Entity::getEntityList()  )
+    {
+        //Check if entity has required components
+        if( ( entity.getComponentMask() & componentMask ) == componentMask )
+        {
+            Position& positon = entity.getComponent<Position>();
+            Sprite& sprite = entity.getComponent<Sprite>();
+        }
+    }
    
     //Update screen
     SDL_RenderPresent( renderer );

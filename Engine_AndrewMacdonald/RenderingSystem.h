@@ -5,9 +5,9 @@
 
 #include <SDL.h>
 
-#include "ISystem.h"
+#include "System.h"
 
-class RenderingSystem : ISystem
+class RenderingSystem : public System<RenderingSystem>
 {
 public:
     RenderingSystem( SDL_Window* window );
@@ -18,4 +18,3 @@ public:
 private:
     SDL_Renderer* renderer;
 };
-
