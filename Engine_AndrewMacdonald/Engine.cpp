@@ -62,6 +62,17 @@ Engine::~Engine(void)
 
 void Engine::start(void)
 {
+    for( int i = 0; i < 4; ++i)
+    {
+        Entity& e = Entity::create();
+        Position& position = e.addComponent<Position>();
+        position.x = 150 * i;
+        position.y = 75 * i;
+        Sprite& sprite = e.addComponent<Sprite>();
+        sprite.texture = "Assets/test.png";
+    }
+    
+
     while( !quit )
     {
         update();
