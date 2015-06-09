@@ -1,0 +1,40 @@
+{
+	"Entities" : [
+		{
+			"Position": {
+				"x": 150,
+				"y": 75
+			},
+			"Sprite": {
+				"texture": "Assets/test.png"
+			}
+		},
+		{
+			"Position": {
+				"x": 300,
+				"y": 150
+			},
+			"Sprite": {
+				"texture": "Assets/test.png"
+			}
+		},
+		{
+			"Position": {
+				"x": 450,
+				"y": 225
+			},
+			"Sprite": {
+				"texture": "Assets/test.png"
+			}
+		},
+		{
+			"Position": {
+				"x": 600,
+				"y": 300
+			},
+			"Sprite": {
+				"texture": "Assets/test.png"
+			}
+		}
+	]	
+}

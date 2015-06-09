@@ -39,24 +39,28 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dep\SDL2-2.0.3\lib\x86;$(SolutionDir)Dep\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(SolutionDir)Dep\rapidjson-1.0.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dep\SDL2-2.0.3\lib\x86;$(SolutionDir)Dep\SDL2_image-2.0.0\lib\x86;C:\boost_1_58_0\lib32-msvc-11.0;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dep\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(SolutionDir)Dep\boost_1_58\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dep\SDL2-2.0.3\lib\x86;$(SolutionDir)Dep\SDL2_image-2.0.0\lib\x86;$(SolutionDir)Dep\boost_1_58\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -70,7 +74,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2main.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -80,6 +84,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RenderingSystem.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="System.cpp" />
   </ItemGroup>
@@ -89,8 +94,15 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="RenderingSystem.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="System.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Debug\Assets\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Debug\Assets\scene.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,12 +1,5 @@
 //Engine.cpp
 #include "Engine.h"
-#include <iostream>
-
-#include "Position.h"
-#include "Sprite.h"
-
-#include "System.h"
-
 
 Engine& Engine::instance(void)
 {
@@ -62,16 +55,7 @@ Engine::~Engine(void)
 
 void Engine::start(void)
 {
-    for( int i = 0; i < 4; ++i)
-    {
-        Entity& e = Entity::create();
-        Position& position = e.addComponent<Position>();
-        position.x = 150 * i;
-        position.y = 75 * i;
-        Sprite& sprite = e.addComponent<Sprite>();
-        sprite.texture = "Assets/test.png";
-    }
-    
+    Scene::load( "Assets/scene.json" );
 
     while( !quit )
     {

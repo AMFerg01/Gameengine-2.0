@@ -1,10 +1,14 @@
 //Engine.h
 #pragma once
 
+#include <fstream>
+#include <iostream>
+
 #include <SDL.h>
 
 #include "Entity.h"
 #include "RenderingSystem.h"
+#include "Scene.h"
 
 class Engine
 {
