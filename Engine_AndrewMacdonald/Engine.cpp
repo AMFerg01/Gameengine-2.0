@@ -39,6 +39,7 @@ Engine::Engine(void)
 
      //Initialize Systems
      renderingSystem = new RenderingSystem( window );
+     movementSystem = new MovementSystem();
 }
 
 Engine::~Engine(void)
@@ -75,6 +76,9 @@ void Engine::update()
         }
     }
 
-    //Update Systems
+     //Update Systems
+    movementSystem->update();
     renderingSystem->update();
+
+
 }

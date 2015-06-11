@@ -7,8 +7,10 @@
 #include <SDL.h>
 
 #include "Entity.h"
+#include "MovementSystem.h"
 #include "RenderingSystem.h"
 #include "Scene.h"
+#include "Input.h"
 
 class Engine
 {
@@ -18,6 +20,7 @@ private:
 
     //Systems
     RenderingSystem* renderingSystem;
+    MovementSystem* movementSystem;
 
     Engine(void);                       //Private Constructor
     ~Engine(void);                      //Private Destructor

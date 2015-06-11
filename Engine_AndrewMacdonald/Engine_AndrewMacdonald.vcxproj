@@ -39,12 +39,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(SolutionDir)Dep\rapidjson-1.0.2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dep\SDL2-2.0.3\lib\x86;$(SolutionDir)Dep\SDL2_image-2.0.0\lib\x86;C:\boost_1_58_0\lib32-msvc-11.0;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(SolutionDir)Dep\rapidjson-1.0.2\include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(SolutionDir)Dep\boost_1_58\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dep\SDL2-2.0.3\lib\x86;$(SolutionDir)Dep\SDL2_image-2.0.0\lib\x86;$(SolutionDir)Dep\boost_1_58\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dep\SDL2-2.0.3\include;$(SolutionDir)Dep\SDL2_image-2.0.0\include;$(SolutionDir)Dep\rapidjson-1.0.2\include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,7 +81,9 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovementSystem.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="RenderingSystem.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -92,14 +94,15 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Keys.h" />
+    <ClInclude Include="Mouse.h" />
+    <ClInclude Include="MovementSystem.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="RenderingSystem.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="System.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\Debug\Assets\test.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\Assets\scene.json" />
