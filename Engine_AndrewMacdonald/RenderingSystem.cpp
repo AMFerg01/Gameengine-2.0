@@ -72,10 +72,11 @@ void RenderingSystem::update()
 
             //Set sprite's height and width
             SDL_QueryTexture( _textureMap[ sprite.texture ], NULL, NULL, &sprite.width, &sprite.height );
-
+			int rendererHeight;
+			SDL_GetRendererOutputSize(renderer, nullptr, &rendererHeight);
             //Create Drawing Rectangles
             SDL_Rect sourceRect = { 0, 0, sprite.width, sprite.height };
-            SDL_Rect destRect = { (int)position.x, (int)position.y, sprite.width, sprite.height };
+			SDL_Rect destRect = { (int)position.x, rendererHeight - (int)position.y, sprite.width, sprite.height };
 
             //Copy Sprite texture to screen
             SDL_RenderCopy( renderer, _textureMap[sprite.texture], &sourceRect, &destRect );

@@ -10,6 +10,8 @@
 
 #include "Entity.h"
 #include "Position.h"
+#include "CircleCollider.h"
+#include "RectangleCollider.h"
 #include "Sprite.h"
 
 namespace Scene {

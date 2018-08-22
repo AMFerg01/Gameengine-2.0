@@ -9,8 +9,11 @@
 #include "Entity.h"
 #include "MovementSystem.h"
 #include "RenderingSystem.h"
+#include "PhysicsSystem.h"
 #include "Scene.h"
 #include "Input.h"
+
+class PhysicsSystem;
 
 class Engine
 {
@@ -32,7 +35,7 @@ private:
 
 public:
     static Engine& instance(void);      //Return the one Engine instance
-
+	float physicsScale; // Pixels per meter
     void start(void);
     void update(void);
 };

@@ -1,13 +1,17 @@
 {
-	"Entities" : [
+	"Entities": [
 		{
-			"Position": {
-				"x": 0,
-				"y": 0
+			"Position":{
+				"x":0,
+				"y": 50
 			},
-			"Sprite": {
-				"texture": "Assets/test.png"
+			"Sprite" : {
+				"texture": "Assets/testfloor.png"
+			},
+			"RectangleCollider": {
+				"width": 800,
+				"height": 50
 			}
 		}
-	]	
+	]
 }

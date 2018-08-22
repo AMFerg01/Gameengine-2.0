@@ -40,6 +40,7 @@ Engine::Engine(void)
      //Initialize Systems
      renderingSystem = new RenderingSystem( window );
      movementSystem = new MovementSystem();
+	 physicsScale = 100.0f;
 }
 
 Engine::~Engine(void)

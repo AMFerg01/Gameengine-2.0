@@ -1,6 +1,6 @@
 //Scene.cpp
 #include "Scene.h"
-
+#include "RigidBody.h"
 namespace Scene
 {
 void load( const char* scene )
@@ -69,7 +69,36 @@ void load( const char* scene )
                     sprite.texture = componentsIter->value["texture"].GetString();
                 }
             }
-        }
-    }        
+			else if( componentTypeName == "RigidBody" )
+			{
+				RigidBody& rigidBody = newEntity.addComponent<RigidBody>();
+			}
+			else if(componentTypeName == "CircleCollider")
+			{
+				CircleCollider& circleCollider = newEntity.addComponent<CircleCollider>();
+				//create address for collider component and set equal to newEntity.addComponent()
+				//if has radius and radius is a number:
+				if(componentsIter->value.HasMember("radius") && componentsIter->value["radius"].IsNumber())
+				{
+					circleCollider.radius = (float)componentsIter->value["radius"].GetDouble();
+				}
+			}
+			else if(componentTypeName == "RectangleCollider")
+			{
+				RectangleCollider& rectangleCollider = newEntity.addComponent<RectangleCollider>();
+				//create address for collider component and set equal to newEntity.addComponent()
+				//if has radius and radius is a number:
+				if(componentsIter->value.HasMember("width") && componentsIter->value["width"].IsNumber())
+				{
+					rectangleCollider.width = (float)componentsIter->value["width"].GetDouble();
+				}
+				if(componentsIter->value.HasMember("height") && componentsIter->value["height"].IsNumber())
+				{
+					rectangleCollider.height = (float)componentsIter->value["height"].GetDouble();
+				}
+
+			}
+		}        
+	}
 }
 }
